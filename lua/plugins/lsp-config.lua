@@ -16,11 +16,29 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+ 
       local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({}) -- lua
-      lspconfig.tsserver.setup({}) -- JS and TS
-      lspconfig.ltex.setup({}) -- Markdown, LaTex, etc.
-      lspconfig.pyright.setup({}) -- Python (maybe works?)
+      lspconfig.lua_ls.setup({
+        settings = {
+          Lua = {
+            diagnostics = {
+              disable = { "trailing-space" }
+            }
+          }
+        },
+        capabilities = capabilities
+      }) -- lua
+      lspconfig.tsserver.setup({
+        capabilities = capabilities
+      }) -- JS and TS
+      lspconfig.ltex.setup({
+        capabilities = capabilities
+      }) -- MD, LaTex, etc.
+      lspconfig.pyright.setup({
+        capabilities = capabilities
+      }) -- Python (might work)
+
       -- display more info of piece of code
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       -- go to where variable is defined

@@ -11,5 +11,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.cmd("Neotree filesystem reveal left")
+    vim.cmd("vertical res 25")
+  end,
+})
+
 require("vim-options")
 require("lazy").setup("plugins")
