@@ -12,4 +12,11 @@ return {
       desc = "Buffer Local Keymaps (which-key)",
     },
   },
+  config = function()
+    local wk = require("which-key")
+    wk.add({
+      { "<M-Right>", "<C-w>l", desc = "Move to right window", mode = "n" },
+      { "<M-Left>", "<C-w>h", desc = "Move to left window", mode = "n" }
+    })
+  end
 }

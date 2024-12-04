@@ -23,9 +23,9 @@ vim.opt.relativenumber = true
 ------------------
 -- Key Mappings --
 ------------------
--- Open NeoTree with <space> + e
--- vim.api.nvim_set_keymap('n', '<Space>e', ':Neotree toggle<CR>', { noremap = true, silent = true})
 -- <Alt> + Right Arrow -> Move to right window
 vim.api.nvim_set_keymap('n', '<M-Right>', '<C-w>l', { noremap = true, silent = true })
 -- <Alt> + Left Arrow -> Move to left window
 vim.api.nvim_set_keymap('n', '<M-Left>', '<C-w>h', { noremap = true , silent = true})
+--! NOTE: if you want the keymap to be shown in which-key, add it to the which-key config
+
